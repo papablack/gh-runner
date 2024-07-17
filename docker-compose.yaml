@@ -4,7 +4,7 @@ services:
   runner:
     image: myoung34/github-runner:latest
     env_file:
-	- .env
+      - .env
     environment:
       # Replace with your GitHub organization/repository
       ORG_RUNNER: "false"
