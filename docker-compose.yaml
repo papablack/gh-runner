@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  runner:
+    image: myoung34/github-runner:latest
+    environment:
+      # Replace with your GitHub organization/repository
+      ORG_RUNNER: "false"
+      REPO_URL: "${RUNNER_REPO}"
+      # Replace with your GitHub personal access token
+      RUNNER_TOKEN: "${RUNNER_TOKEN}"
+      RUNNER_NAME: "${RUNNER_NAME}"
+      RUNNER_WORKDIR: "${WORKDIR}"
+      RUNNER_GROUP: "Default"
+      LABELS: "self-hosted,Linux,X64,runner,aws"
+      RUNNER_SCOPE: "self-hosted"
+    volumes:
+      - './runner:/tmp/github-runner'
+    restart: unless-stopped
